@@ -1,6 +1,6 @@
 :root{
     --orange: #ff5e3a;
-    --red: #c62828;
+    --red: #ff2222;
     --glass-bg: rgba(255, 255, 255, 0.18);
     --glass-border: rgba(255, 255, 255, 0.30);
 }
@@ -8,9 +8,14 @@
 *{box-sizing: border-box; margin: 0; padding: 0;}
 
 body{
-    min-height: 150vh;
+    min-height: 100vh;
     font-family: system-ui, sans-serif;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e53,#ffb74d);
+    /*background: linear-gradient(135deg, #fc4444, #ff8e53,#ffb74d);*/
+    background-image: url('../RES/IMG/back_china.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: white;
     overflow-x: hidden;
     position: relative;
@@ -18,58 +23,42 @@ body{
 
 .float-animal {
     position: absolute;
-    width: 150px;             
+    width: 180px;             
     height: auto;
-    opacity: 0.65;
+    opacity: 0.80;
     pointer-events: none;
-    animation: drift-left 32s linear infinite;
+    
 }
 
-
-.float-animal:nth-child(1) {  /* dragon */
-    top: 1%;
-    left: -140px;
-    animation-duration: 30s;
-    animation-name: drift-right;   /* we'll define two animations */
+.right-move{
+   animation: move-right 30s linear infinite;
 }
 
-.float-animal:nth-child(3) {  /* horse */
-    bottom: 30%;
-    left: -130px;
-    animation-duration: 31s;
-    animation-name: drift-right;
+.left-move{
+   animation: move-left 31s linear infinite;
 }
 
-/* Right → Left animals (dog & rat) */
-.float-animal:nth-child(2) {  /* dog */
-    top: 30%;
-    left: calc(99vw);  
-    animation-duration: 32s;
+@keyframes move-right {
+  0%   { transform: translateX(-25vw); }     /* start even further left */
+  100% { transform: translateX(125vw); }     /* go further right before reset */
 }
 
-.float-animal:nth-child(4) {  /* rat */
-    bottom: 1%;
-    left: calc(99vw);   /* start just off right edge */
-    animation-duration: 33s;
+@keyframes move-left {
+  0%   { transform: translateX(125vw); }     /* start further right */
+  100% { transform: translateX(-25vw); }     /* go further left */
 }
+    .float-animal:nth-child(1) { top: 8%;  animation-duration: 38s; } /* dragon */
+    .float-animal:nth-child(2) { top: 35%; animation-duration: 44s; } /* dog */
+    .float-animal:nth-child(3) { bottom: 22%; animation-duration: 41s; } /* horse */
+    .float-animal:nth-child(4) { bottom: 2%;  animation-duration: 46s; } /* rat */
 
-/* Animation moving RIGHT (for left starters) */
-@keyframes drift-right {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(160vw); }
-}
 
-/* Animation moving LEFT (for right starters) */
-@keyframes drift-left {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-110vw); }
-
-}
  .container{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 40px 20px;
     gap: 2.5rem;
 }
@@ -89,13 +78,112 @@ body{
     font-size: 1.7rem;
     font-weight: bold;
     position: relative;
+    overflow: hidden;
     letter-spacing: 1px;
+    
 }
 
-.lantern{
-    position: absolute;
-    width: 150px;             
-    height: auto;
-    opacity: 0.95;
-    pointer-events: none;
+
+.header span{
+    position: relative;
+    z-index: 2;
+    display: inline-block;
 }
+
+.lantern {
+      position: absolute;
+      width: 200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-120%, -80%);
+      opacity: 0.65;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+.form-area {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      padding: 2.4rem 2rem 2.8rem;
+    }
+
+label{
+    display: block;
+    margin: 1.5rem 0 0.7rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.24);
+      color: white;
+      font-size: 1.1rem;
+    }
+
+.submit-btn{
+    display: block;
+    width: 80%;
+    max-width: 220px;
+    margin: 2.8rem auto 0.8rem;
+    padding: 16px;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 22px rgba(255, 95, 58, 0.45);
+    transition: all 0.25s;
+
+}
+
+.submit-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,94,58,0.6);
+}
+
+.result-area{
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-bg);
+    border-radius: 28px;
+    padding: 2.2rem;
+    text-align: center;
+    min-height: 180px;
+    display: flex;   
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.8rem;
+}
+
+.result-area h2 {
+      font-size: 1.9rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .result-area p {
+      font-size: 1.3rem;
+      line-height: 1.45;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
