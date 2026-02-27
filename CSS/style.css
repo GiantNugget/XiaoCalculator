@@ -1,0 +1,101 @@
+:root{
+    --orange: #ff5e3a;
+    --red: #c62828;
+    --glass-bg: rgba(255, 255, 255, 0.18);
+    --glass-border: rgba(255, 255, 255, 0.30);
+}
+
+*{box-sizing: border-box; margin: 0; padding: 0;}
+
+body{
+    min-height: 150vh;
+    font-family: system-ui, sans-serif;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53,#ffb74d);
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.float-animal {
+    position: absolute;
+    width: 150px;             
+    height: auto;
+    opacity: 0.65;
+    pointer-events: none;
+    animation: drift-left 32s linear infinite;
+}
+
+
+.float-animal:nth-child(1) {  /* dragon */
+    top: 1%;
+    left: -140px;
+    animation-duration: 30s;
+    animation-name: drift-right;   /* we'll define two animations */
+}
+
+.float-animal:nth-child(3) {  /* horse */
+    bottom: 30%;
+    left: -130px;
+    animation-duration: 31s;
+    animation-name: drift-right;
+}
+
+/* Right → Left animals (dog & rat) */
+.float-animal:nth-child(2) {  /* dog */
+    top: 30%;
+    left: calc(99vw);  
+    animation-duration: 32s;
+}
+
+.float-animal:nth-child(4) {  /* rat */
+    bottom: 1%;
+    left: calc(99vw);   /* start just off right edge */
+    animation-duration: 33s;
+}
+
+/* Animation moving RIGHT (for left starters) */
+@keyframes drift-right {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(160vw); }
+}
+
+/* Animation moving LEFT (for right starters) */
+@keyframes drift-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-110vw); }
+
+}
+ .container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 2.5rem;
+}
+
+.panel{
+    width: 100%;
+    max-width: 450px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0, 0.18);
+}
+
+.header{
+    background: var(--red);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.lantern{
+    position: absolute;
+    width: 150px;             
+    height: auto;
+    opacity: 0.95;
+    pointer-events: none;
+}
