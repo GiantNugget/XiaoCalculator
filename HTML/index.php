@@ -1,3 +1,5 @@
+<?php include '../PHP/index.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +48,14 @@
             <p>Hallo Hallo<br>
                1,200 pesos ko<br>
              Nigga</p>
+            <?php
+                echo 
+                $Result1;
+                $Result2;
+                $Result3;
+                $Result4;
+                $Result5;
+            ?>    
         </div>
     </div>
 
