@@ -7,31 +7,45 @@
      <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-    <img src="../RES/IMG/chidragon.png" alt="dragon" class="float-animal">
-    <img src="../RES/IMG/chidog.png" alt="dog" class="float-animal">
-    <img src="../RES/IMG/chihorse.png" alt="horse" class="float-animal">
-    <img src="../RES/IMG/chirat.png" alt="rat" class="float-animal">
+    <img src="../RES/IMG/chidragon.png" alt="dragon" class="float-animal right-move">
+    <img src="../RES/IMG/chidog.png" alt="dog" class="float-animal right-move" >
+    <img src="../RES/IMG/chihorse.png" alt="horse" class="float-animal right-move">
+    <img src="../RES/IMG/chirat.png" alt="rat" class="float-animal right-move">
 
     <div class="container">
         <div class="panel">
             <div class="header">
-                <h2>CHINESE NEW YEAR</h2>
-                <img src="../RES/IMG/chidog.png" alt="" class="lantern">
+                
+                <img src="../RES/IMG/latern.png" alt="" class="lantern">
+                <span><h2>CHINESE NEW YEAR</h2></span> 
             </div>
                 <div class="form-area">
                     <form  method="get">
                         <label>Birthdate</label>
-                        <input type="text" name = "birth" placeholder="MM/DD/YYYY" required>
+                        <input type="date" name = "birth" placeholder="MM/DD/YYYY" required>
 
-                        <label>Birthdate</label>
-                        <input type="number" name = "angpao" placeholder="Enter Amount" min="0" step="1" required>
+                        <label>Angpao 1</label>
+                        <input type="number" name = "angpao1" placeholder="Enter Amount" min="0" step="1" required>
 
-                        <label>Birthdate</label>
-                        <input type="number " name = "food" placeholder="Enter Amount"  min="0" step="1" required>
+                        <label>Angpao 2</label>
+                        <input type="number" name = "angpao2" placeholder="Enter Amount" min="0" step="1" required>
+
+                        <label>Angpao 3</label>
+                        <input type="number" name = "angpao3" placeholder="Enter Amount" min="0" step="1" required>
+
+                        <label>Total Food Expenses</label>
+                        <input type="number" name = "food" placeholder="Enter Amount"  min="0" step="1" required>
 
                         <button type="submit" class="submit-btn">SUBMIT</button>
                     </form>
                 </div>
+        </div>
+
+        <div class="result-area">
+            <h2>Outputs</h2>
+            <p>Hallo Hallo<br>
+               1,200 pesos ko<br>
+             Nigga</p>
         </div>
     </div>
 
